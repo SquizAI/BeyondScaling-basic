@@ -47,13 +47,18 @@ The website details three fundamental neuroscience frameworks that are driving i
 
 Visit the live website at [beyondscaling.netlify.app](https://beyondscaling.netlify.app)
 
+## 👥 Authors
+
+- **Michael Mannino** - Neuroscience & AI Integration Research
+- **Matty Squarzoni** - Interactive Visualization & Framework Development
+
 ## 📊 Citation
 
 If you use this visualization in your work, please cite:
 
 ```
-SquizAI Research. (2025). Beyond Scaling: Why AI Needs Neuroscience for True Intelligence.
-Retrieved from https://github.com/SquizAI/BeyondScaling-basic
+Mannino, M., & Squarzoni, M. (2025). Beyond Scaling: Why AI Needs Neuroscience for True Intelligence.
+SquizAI Research. Retrieved from https://github.com/SquizAI/BeyondScaling-basic
 ```
 
 ## 📝 License
@@ -62,4 +67,4 @@ MIT License
 
 ---
 
-Created by SquizAI Research © 2025
+Created by Michael Mannino & Matty Squarzoni | SquizAI Research © 2025
