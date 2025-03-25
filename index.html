@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond Scaling: AI & Neuroscience</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explore how neuroscience principles are redefining AI development beyond traditional scaling approaches. Interactive visualization of key frameworks in 2025.">
+    <meta name="keywords" content="AI, neuroscience, free energy principle, metastability, embodied consciousness, SOLOMON framework, AI scaling laws">
+    <meta name="author" content="SquizAI Research">
+    
+    <!-- Open Graph / Social Media Preview -->
+    <meta property="og:title" content="Beyond Scaling: Why AI Needs Neuroscience for True Intelligence">
+    <meta property="og:description" content="Interactive exploration of how neuroscience principles are transforming AI development in 2025, moving beyond traditional scaling approaches.">
+    <meta property="og:image" content="https://beyondscaling.netlify.app/preview-image.jpg">
+    <meta property="og:url" content="https://beyondscaling.netlify.app">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Beyond Scaling: Why AI Needs Neuroscience for True Intelligence">
+    <meta name="twitter:description" content="Interactive exploration of neuroscience principles in AI development, moving beyond traditional scaling approaches.">
+    <meta name="twitter:image" content="https://beyondscaling.netlify.app/preview-image.jpg">
+    
+    <!-- Mermaid JS for flowcharts -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3a86ff;
+            --primary-color-rgb: 58, 134, 255;
+            --secondary-color: #8338ec;
+            --secondary-color-rgb: 131, 56, 236;
+            --accent-color: #ff006e;
+            --accent-color-rgb: 255, 0, 110;
+            --bg-color: #f8f9fa;
+            --text-color: #212529;
+            --light-gray: #e9ecef;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1501780392773-287d506245a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+        
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 2rem;
+        }
+        
+        nav {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            position: sticky;
+            top: 2rem;
+            max-height: calc(100vh - 4rem);
+            overflow-y: auto;
+        }
+        
+        nav ul {
+            list-style: none;
+        }
+        
+        nav li {
+            margin-bottom: 0.5rem;
+        }
+        
+        nav a {
+            display: block;
+            padding: 0.5rem;
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        
+        nav a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-color);
+        }
+        
+        nav a.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .content {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light-gray);
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-title {
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-title i {
+            margin-right: 0.5rem;
+        }
+        
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .friston-card {
+            border-left-color: #3a86ff;
+        }
+        
+        .kelso-card {
+            border-left-color: #8338ec;
+        }
+        
+        .seth-card {
+            border-left-color: #ff006e;
+        }
+        
+        .framework-card {
+            border-left-color: #fb5607;
+        }
+        
+        .flowchart-container {
+            width: 100%;
+            margin: 2rem 0;
+            padding: 1rem;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .references {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        
+        .references h3 {
+            color: var(--text-color);
+        }
+        
+        .references ol {
+            padding-left: 1.5rem;
+        }
+        
+        .references li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .references a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .references a:hover {
+            text-decoration: underline;
+        }
+        
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dashed var(--primary-color);
+            cursor: help;
+        }
+        
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            border-radius: 6px;
+            padding: 0.5rem;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 220px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            nav {
+                position: static;
+                margin-bottom: 2rem;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Interactive elements */
+        .collapsible {
+            background-color: var(--light-gray);
+            color: var(--text-color);
+            cursor: pointer;
+            padding: 1rem;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1rem;
+            transition: var(--transition);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .collapsible:hover {
+            background-color: #ddd;
+        }
+        
+        .collapsible-content {
+            padding: 0 1rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: white;
+            border-radius: 0 0 4px 4px;
+        }
+        
+        .collapsible:after {
+            content: '\f107';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            margin-left: 0.5rem;
+        }
+        
+        .active:after {
+            content: '\f106';
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Beyond Scaling: Why AI Needs Neuroscience for True Intelligence</h1>
+            <p class="subtitle">An interactive exploration of the integration of neuroscience principles into AI development (March 2025)</p>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <nav id="sideNav">
+            <ul>
+                <li><a href="#introduction" class="active">Introduction</a></li>
+                <li><a href="#frameworks">Core Frameworks</a></li>
+                <li><a href="#free-energy">Free Energy Principle</a></li>
+                <li><a href="#metastability">Metastability</a></li>
+                <li><a href="#embodied-consciousness">Embodied Consciousness</a></li>
+                <li><a href="#integration">Integration Paradigm</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+                <li><a href="#flowchart">Conceptual Flowchart</a></li>
+                <li><a href="#references">References</a></li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <section id="introduction" class="section visible">
+                <h2>Introduction: The Scaling Paradigm at a Crossroads</h2>
+                <p>The artificial intelligence industry finds itself at a critical juncture in early 2025. The dominant paradigm of "scaling laws" - the predictable improvement of model performance through increased compute, data, and parameters - is showing signs of diminishing returns. As reported by TechCrunch in March 2025, researchers are exploring alternative methods of scaling AI beyond the traditional approaches, with many experts expressing skepticism about whether conventional scaling alone can deliver true artificial general intelligence (AGI).</p>
+                
+                <div class="card">
+                    <div class="card-title"><i class="fas fa-exclamation-circle"></i>Industry Challenge</div>
+                    <p>Major AI companies are experiencing significant delays in next-generation model releases, with xAI's Grok 3 missing its planned release date and similar postponements from other industry leaders. These setbacks have prompted fundamental questions about whether we've reached natural limits in the current scaling paradigm.</p>
+                </div>
+                
+                <p>The AI research community is now looking beyond traditional scaling to neuroscience-inspired approaches, recognizing that human-like intelligence emerges from principles fundamentally different from statistical pattern matching. Three neuroscientific frameworks offer particular promise:</p>
+                
+                <ul id="neuroscience-frameworks">
+                    <li><span class="tooltip">Karl Friston's Free Energy Principle<span class="tooltip-text">A unifying brain theory that explains neural organization through energy minimization</span></span></li>
+                    <li><span class="tooltip">Scott Kelso's concept of metastability<span class="tooltip-text">A dynamic balance between integration and segregation in neural systems</span></span></li>
+                    <li><span class="tooltip">Anil Seth's theories of embodied consciousness<span class="tooltip-text">Understanding consciousness as emerging from bodily processes and self-preservation</span></span></li>
+                </ul>
+                
+                <p>This document explores how these frameworks are being integrated into cutting-edge AI research in 2025.</p>
+            </section>
+            
+            <!-- More sections will be added in the next chunks -->
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="content.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Interactive visualization for scaling vs neuroscience approaches
+            const chartSection = document.createElement('section');
+            chartSection.id = 'visualization';
+            chartSection.className = 'section';
+            chartSection.innerHTML = `
+                <h2>Interactive Comparison: Scaling vs. Neuroscience Approaches</h2>
+                <div class="chart-container" style="height: 400px; margin: 2rem 0;">
+                    <canvas id="comparisonChart"></canvas>
+                </div>
+            `;
+            
+            // Insert before the flowchart section
+            const flowchartSection = document.getElementById('flowchart');
+            if (flowchartSection) {
+                document.querySelector('.content').insertBefore(chartSection, flowchartSection);
+            } else {
+                document.querySelector('.content').appendChild(chartSection);
+            }
+            
+            // Add Chart.js
+            const chartScript = document.createElement('script');
+            chartScript.src = 'https://cdn.jsdelivr.net/npm/chart.js';
+            document.head.appendChild(chartScript);
+            
+            chartScript.onload = function() {
+                const ctx = document.getElementById('comparisonChart').getContext('2d');
+                const chart = new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: [
+                            'Adaptability', 
+                            'Explainability',
+                            'Data Efficiency', 
+                            'Energy Efficiency',
+                            'Generalization',
+                            'Reasoning Ability'
+                        ],
+                        datasets: [
+                            {
+                                label: 'Traditional Scaling Approach',
+                                data: [40, 30, 20, 15, 60, 45],
+                                backgroundColor: 'rgba(58, 134, 255, 0.2)',
+                                borderColor: 'rgb(58, 134, 255)',
+                                pointBackgroundColor: 'rgb(58, 134, 255)',
+                                pointBorderColor: '#fff',
+                                pointHoverBackgroundColor: '#fff',
+                                pointHoverBorderColor: 'rgb(58, 134, 255)'
+                            },
+                            {
+                                label: 'Neuroscience-Inspired Approach',
+                                data: [85, 75, 80, 70, 75, 90],
+                                backgroundColor: 'rgba(255, 0, 110, 0.2)',
+                                borderColor: 'rgb(255, 0, 110)',
+                                pointBackgroundColor: 'rgb(255, 0, 110)',
+                                pointBorderColor: '#fff',
+                                pointHoverBackgroundColor: '#fff',
+                                pointHoverBorderColor: 'rgb(255, 0, 110)'
+                            }
+                        ]
+                    },
+                    options: {
+                        elements: {
+                            line: {
+                                borderWidth: 3
+                            }
+                        },
+                        scales: {
+                            r: {
+                                angleLines: {
+                                    display: true
+                                },
+                                suggestedMin: 0,
+                                suggestedMax: 100
+                            }
+                        }
+                    }
+                });
+            };
+            
+            // Add interactive timeline
+            const timelineSection = document.createElement('section');
+            timelineSection.id = 'timeline';
+            timelineSection.className = 'section';
+            timelineSection.innerHTML = `
+                <h2>Timeline: Evolution of AI Approaches</h2>
+                <div class="timeline-container" style="margin: 2rem 0;">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2020-2022</div>
+                            <div class="timeline-content">
+                                <h3>Scaling Era Dominance</h3>
+                                <p>Large language models like GPT-3 demonstrate impressive capabilities through massive scaling of parameters, data, and compute resources.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2023</div>
+                            <div class="timeline-content">
+                                <h3>Emergence & Questions</h3>
+                                <p>Research on "emergent abilities" of LLMs by Wei et al. highlights unpredictable capabilities appearing at scale breakpoints.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2024</div>
+                            <div class="timeline-content">
+                                <h3>Scaling Limitations Appear</h3>
+                                <p>As models reach trillion-parameter scales, diminishing returns become apparent. Focus shifts to efficiency and qualitative improvements.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2025</div>
+                            <div class="timeline-content">
+                                <h3>Neuroscience Integration</h3>
+                                <p>Breakthrough architectures like SOLOMON and Cosmos-Reason1 demonstrate superior capabilities by incorporating principles from neuroscience.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <style>
+                    .timeline-container {
+                        padding: 20px;
+                        background-color: var(--light-gray);
+                        border-radius: 8px;
+                    }
+                    .timeline {
+                        position: relative;
+                        max-width: 1200px;
+                        margin: 0 auto;
+                    }
+                    .timeline::after {
+                        content: '';
+                        position: absolute;
+                        width: 6px;
+                        background-color: var(--primary-color);
+                        top: 0;
+                        bottom: 0;
+                        left: 50%;
+                        margin-left: -3px;
+                        border-radius: 3px;
+                    }
+                    .timeline-item {
+                        padding: 10px 40px;
+                        position: relative;
+                        width: 50%;
+                        box-sizing: border-box;
+                        margin-bottom: 30px;
+                    }
+                    .timeline-item:nth-child(odd) {
+                        left: 0;
+                    }
+                    .timeline-item:nth-child(even) {
+                        left: 50%;
+                    }
+                    .timeline-dot {
+                        position: absolute;
+                        width: 25px;
+                        height: 25px;
+                        right: -17px;
+                        background-color: white;
+                        border: 4px solid var(--primary-color);
+                        top: 15px;
+                        border-radius: 50%;
+                        z-index: 1;
+                    }
+                    .timeline-item:nth-child(even) .timeline-dot {
+                        left: -17px;
+                    }
+                    .timeline-date {
+                        position: absolute;
+                        top: 12px;
+                    }
+                    .timeline-item:nth-child(odd) .timeline-date {
+                        right: -150px;
+                    }
+                    .timeline-item:nth-child(even) .timeline-date {
+                        left: -150px;
+                    }
+                    .timeline-content {
+                        padding: 20px 30px;
+                        background-color: white;
+                        position: relative;
+                        border-radius: 6px;
+                        box-shadow: var(--card-shadow);
+                    }
+                    .timeline-content h3 {
+                        margin-top: 0;
+                    }
+                    .timeline-item:nth-child(odd) .timeline-content {
+                        border-left: 4px solid var(--secondary-color);
+                    }
+                    .timeline-item:nth-child(even) .timeline-content {
+                        border-left: 4px solid var(--accent-color);
+                    }
+                    @media screen and (max-width: 768px) {
+                        .timeline::after {
+                            left: 31px;
+                        }
+                        .timeline-item {
+                            width: 100%;
+                            padding-left: 70px;
+                            padding-right: 25px;
+                        }
+                        .timeline-item:nth-child(even) {
+                            left: 0;
+                        }
+                        .timeline-dot {
+                            left: 15px;
+                            right: auto;
+                        }
+                        .timeline-item:nth-child(odd) .timeline-date {
+                            right: auto;
+                            left: 15px;
+                            top: -30px;
+                        }
+                        .timeline-item:nth-child(even) .timeline-date {
+                            left: 15px;
+                            top: -30px;
+                        }
+                    }
+                </style>
+            `;
+            
+            // Insert after the introduction section
+            const introSection = document.getElementById('introduction');
+            if (introSection && introSection.nextElementSibling) {
+                document.querySelector('.content').insertBefore(timelineSection, introSection.nextElementSibling);
+            } else if (introSection) {
+                document.querySelector('.content').insertBefore(timelineSection, introSection.nextSibling);
+            }
+            
+            // Add dark mode toggle
+            const header = document.querySelector('header');
+            const darkModeToggle = document.createElement('button');
+            darkModeToggle.id = 'darkModeToggle';
+            darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            darkModeToggle.style.position = 'absolute';
+            darkModeToggle.style.top = '20px';
+            darkModeToggle.style.right = '20px';
+            darkModeToggle.style.background = 'transparent';
+            darkModeToggle.style.border = 'none';
+            darkModeToggle.style.color = 'white';
+            darkModeToggle.style.fontSize = '1.5rem';
+            darkModeToggle.style.cursor = 'pointer';
+            darkModeToggle.style.zIndex = '10';
+            header.appendChild(darkModeToggle);
+            
+            darkModeToggle.addEventListener('click', function() {
+                document.body.classList.toggle('dark-mode');
+                if (document.body.classList.contains('dark-mode')) {
+                    this.innerHTML = '<i class="fas fa-sun"></i>';
+                } else {
+                    this.innerHTML = '<i class="fas fa-moon"></i>';
+                }
+            });
+            
+            // Add dark mode styles
+            const darkModeStyles = document.createElement('style');
+            darkModeStyles.textContent = `
+                .dark-mode {
+                    --bg-color: #121212;
+                    --text-color: #e0e0e0;
+                    --light-gray: #333;
+                    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+                }
+                .dark-mode .content, 
+                .dark-mode nav, 
+                .dark-mode .card, 
+                .dark-mode .collapsible-content,
+                .dark-mode .timeline-content {
+                    background-color: #1e1e1e;
+                    color: var(--text-color);
+                }
+                .dark-mode .collapsible {
+                    background-color: #333;
+                    color: var(--text-color);
+                }
+                .dark-mode .collapsible:hover {
+                    background-color: #444;
+                }
+                .dark-mode a {
+                    color: #90caf9;
+                }
+                .dark-mode nav a:hover {
+                    background-color: #333;
+                }
+                .dark-mode .references {
+                    background-color: #333;
+                }
+                .dark-mode h2, .dark-mode h3 {
+                    color: #90caf9;
+                }
+            `;
+            document.head.appendChild(darkModeStyles);
+        });
+    </script>
+</body>
+</html>
