@@ -102,6 +102,29 @@
             animation: fadeInUp 1s ease-out 0.5s backwards;
         }
         
+        /* Mobile menu toggle button */
+        .mobile-nav-toggle {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1000;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: var(--transition);
+        }
+        
+        .mobile-nav-toggle:hover {
+            background: var(--secondary-color);
+        }
+        
         .main-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -363,9 +386,105 @@
         .active:after {
             content: '\f106';
         }
+        
+        /* Responsive Design with Media Queries */
+        @media screen and (max-width: 991px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .main-container {
+                grid-template-columns: 1fr 2fr;
+                gap: 1.5rem;
+                padding: 1.5rem;
+            }
+            
+            .radar-container, .timeline-container {
+                padding: 1rem;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            
+            .mobile-nav-toggle {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                width: 80%;
+                max-width: 300px;
+                z-index: 999;
+                transform: translateX(-100%);
+                opacity: 0;
+                border-radius: 0;
+                overflow-y: auto;
+            }
+            
+            nav.active {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 998;
+            }
+            
+            .overlay.active {
+                display: block;
+            }
+        }
+        
+        @media screen and (max-width: 576px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .authors {
+                font-size: 0.9rem;
+            }
+            
+            header {
+                padding: 1.5rem 1rem;
+            }
+            
+            .card, .timeline-item {
+                padding: 1rem;
+            }
+            
+            .section {
+                padding: 1rem 0;
+            }
+        }
     </style>
 </head>
 <body>
+    <button id="mobileNavToggle" class="mobile-nav-toggle" aria-label="Toggle Navigation Menu">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <div id="navOverlay" class="overlay"></div>
+    
     <header>
         <div class="header-content">
             <h1>Beyond Scaling: Why AI Needs Neuroscience for True Intelligence</h1>
@@ -391,13 +510,15 @@
 
         <div class="content">
             <section id="introduction" class="section visible">
-                <h2>Introduction: The Scaling Paradigm at a Crossroads</h2>
-                <p>The artificial intelligence industry finds itself at a critical juncture in early 2025. The dominant paradigm of "scaling laws" - the predictable improvement of model performance through increased compute, data, and parameters - is showing signs of diminishing returns. As reported by TechCrunch in March 2025, researchers are exploring alternative methods of scaling AI beyond the traditional approaches, with many experts expressing skepticism about whether conventional scaling alone can deliver true artificial general intelligence (AGI).</p>
+                <h2>Introduction: Has AI Hit a Wall?</h2>
+                <p>Imagine training for a marathon by simply buying more expensive shoes every month. At first, you'd see improvements, but eventually, you'd hit a wall – no matter how pricey your footwear gets. That's exactly where AI finds itself in 2025. After years of "just add more" – more data, more parameters, more compute – the tech world is waking up to a surprising reality: bigger isn't always better.</p>
                 
                 <div class="card">
-                    <div class="card-title"><i class="fas fa-exclamation-circle"></i>Industry Challenge</div>
-                    <p>Major AI companies are experiencing significant delays in next-generation model releases, with xAI's Grok 3 missing its planned release date and similar postponements from other industry leaders. These setbacks have prompted fundamental questions about whether we've reached natural limits in the current scaling paradigm.</p>
+                    <div class="card-title"><i class="fas fa-lightbulb"></i>The Million-Dollar Question</div>
+                    <p>What if the secret to smarter AI isn't in supercomputers but in understanding how our own brains work? While tech giants pour billions into making models bigger, a growing movement of researchers is looking to neuroscience for inspiration. And the results? They're turning heads.</p>
                 </div>
+                
+                <p>This isn't just academic debate – it's reshaping the industry. In March 2025, when xAI's much-hyped Grok 3 missed its release date (alongside delays from other AI leaders), investors started asking uncomfortable questions. Has the "just scale it up" approach reached its natural limit? The evidence suggests we might need to get smarter, not just bigger.</p>
                 
                 <p>The AI research community is now looking beyond traditional scaling to neuroscience-inspired approaches, recognizing that human-like intelligence emerges from principles fundamentally different from statistical pattern matching. Three neuroscientific frameworks offer particular promise:</p>
                 

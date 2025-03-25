@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Mobile Navigation Setup
+    const mobileNavToggle = document.getElementById('mobileNavToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const sideNav = document.getElementById('sideNav');
+    
     // Add the rest of the content sections
     const content = document.querySelector('.content');
     
@@ -7,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
     frameworksSection.id = 'frameworks';
     frameworksSection.className = 'section';
     frameworksSection.innerHTML = `
-        <h2>Core Frameworks: Neuroscience Principles Redefining AI</h2>
-        <p>Three fundamental neuroscience frameworks are driving innovation beyond traditional scaling approaches. These frameworks provide theoretical foundations and practical insights for developing more genuinely intelligent AI systems.</p>
+        <h2>Brain Science to the Rescue: Three Game-Changing Ideas</h2>
+        <p>While AI engineers have been busy building bigger digital brains, neuroscientists have been quietly uncovering how our actual brains pull off their magic. It turns out, the human mind isn't just a bigger version of simpler brains – it works on fundamentally different principles. Here are three brain-inspired frameworks that could help AI break through its current ceiling:</p>
     `;
     content.appendChild(frameworksSection);
     
@@ -223,6 +228,35 @@ document.addEventListener('DOMContentLoaded', function() {
     // Navigation active state and smooth scrolling
     const navLinks = document.querySelectorAll('nav a');
     const sections = document.querySelectorAll('.section');
+    
+    // Mobile navigation toggle function
+    function toggleMobileNav() {
+        sideNav.classList.toggle('active');
+        navOverlay.classList.toggle('active');
+        
+        // Toggle icon between bars and times
+        const icon = mobileNavToggle.querySelector('i');
+        if (sideNav.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    }
+    
+    // Event listeners for mobile navigation
+    mobileNavToggle.addEventListener('click', toggleMobileNav);
+    navOverlay.addEventListener('click', toggleMobileNav);
+    
+    // Close mobile menu when a nav link is clicked
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768 && sideNav.classList.contains('active')) {
+                toggleMobileNav();
+            }
+        });
+    });
     
     // Intersection Observer for detecting visible sections
     const observerOptions = {
