@@ -48,6 +48,11 @@
             box-sizing: border-box;
         }
         
+        html {
+            scroll-padding-top: 70px; /* Ensures smooth section transitions */
+            scroll-behavior: smooth;
+        }
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -180,10 +185,11 @@
         }
         
         .section {
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease, transform 0.6s ease;
+            position: relative;
         }
         
         .section.visible {
@@ -191,21 +197,49 @@
             transform: translateY(0);
         }
         
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            margin: 1.5rem 0;
+            opacity: 0.5;
+        }
+        
+        .section-intro {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #555;
+            margin-bottom: 0.75rem; /* Reduced margin for tighter layout */
+            border-left: 3px solid var(--primary-color);
+            padding-left: 1rem;
+            font-style: italic;
+        }
+        
         h2 {
             color: var(--primary-color);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             padding-bottom: 0.5rem;
             border-bottom: 2px solid var(--light-gray);
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
         }
         
         h3 {
             color: var(--secondary-color);
-            margin-top: 2rem;
-            margin-bottom: 1rem;
+            margin-top: 1rem; /* Reduced top margin */
+            margin-bottom: 0.75rem; /* Reduced bottom margin */
         }
         
         p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem; /* Reduced paragraph spacing */
         }
         
         .card {
@@ -257,7 +291,7 @@
         
         .flowchart-container {
             width: 100%;
-            margin: 2rem 0;
+            margin: 1rem 0; /* Reduced margin for tighter spacing */
             padding: 1rem;
             background-color: var(--light-gray);
             border-radius: 8px;
@@ -268,7 +302,8 @@
             background-color: var(--light-gray);
             padding: 1.5rem;
             border-radius: 8px;
-            margin-top: 2rem;
+            margin-top: 1rem; /* Reduced top margin */
+            box-shadow: var(--card-shadow);
         }
         
         .references h3 {
@@ -280,7 +315,34 @@
         }
         
         .references li {
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .next-section-prompt {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-top: 1rem;
             margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .next-section-prompt:hover {
+            color: var(--primary-color);
+        }
+        
+        .next-section-prompt i {
+            margin-left: 0.5rem;
+            animation: bounce 1s infinite alternate;
+        }
+        
+        @keyframes bounce {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(5px); }
         }
         
         .references a {
@@ -511,6 +573,7 @@
         <div class="content">
             <section id="introduction" class="section visible">
                 <h2>Introduction: Has AI Hit a Wall?</h2>
+                <p class="section-intro">The AI industry is facing a critical inflection point where simply scaling up models isn't delivering the expected breakthroughs. Let's explore why neuroscience might hold the key to the next generation of truly intelligent systems.</p>
                 <p>Imagine training for a marathon by simply buying more expensive shoes every month. At first, you'd see improvements, but eventually, you'd hit a wall – no matter how pricey your footwear gets. That's exactly where AI finds itself in 2025. After years of "just add more" – more data, more parameters, more compute – the tech world is waking up to a surprising reality: bigger isn't always better.</p>
                 
                 <div class="card">
@@ -529,6 +592,7 @@
                 </ul>
                 
                 <p>This document explores how these frameworks are being integrated into cutting-edge AI research in 2025.</p>
+                <div class="next-section-prompt" onclick="document.querySelector('a[href=\'#frameworks\']').click()">Continue to Core Frameworks <i class="fas fa-arrow-right"></i></div>
             </section>
             
             <!-- More sections will be added in the next chunks -->
